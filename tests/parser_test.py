@@ -1,15 +1,6 @@
-import json
-
 import pytest
-import yaml
-from conftest import get_fixture_path
+from conftest import PARSERS, get_fixture_path
 from gendiff.parser import parse_files
-
-PARSERS = {
-    ".json": json.load,
-    ".yaml": yaml.safe_load,
-    ".yml": yaml.safe_load,
-}
 
 
 @pytest.mark.parametrize(
