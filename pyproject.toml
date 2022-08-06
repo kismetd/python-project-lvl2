@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "hexlet-code"
+packages = [
+    { include = "gendiff" },
+]
+version = "0.1.0"
+description = "CLI util to compare two JSON or YAML files."
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+flake8 = "^5.0.4"
+black = "^22.6.0"
+isort = "^5.10.1"
+bandit = "^1.7.4"
+safety = "^2.1.1"
+pytest-cov = "^3.0.0"
+
+[tool.poetry.scripts]
+gendiff = "gendiff.__main__:main"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
