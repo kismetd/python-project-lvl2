@@ -1,4 +1,13 @@
+import json
 from pathlib import Path
+
+import yaml
+
+PARSERS = {
+    ".json": json.load,
+    ".yaml": yaml.safe_load,
+    ".yml": yaml.safe_load,
+}
 
 
 def get_fixture_path(file_name, type, is_output=False):
