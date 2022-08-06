@@ -336,7 +336,7 @@ testing = ["fields", "hunter", "process-tests", "six", "pytest-xdist", "virtuale
 name = "pyyaml"
 version = "6.0"
 description = "YAML parser and emitter for Python"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.6"
 
@@ -455,7 +455,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "e278bca2d621f9bf9b378e7c1fb1e1864fb82c66dd45f9be866da4abdff88cea"
+content-hash = "de003183445121e3a83dfe840f4d5af51f13d48887e825b67ae345f10e52d4d3"
 
 [metadata.files]
 atomicwrites = []
