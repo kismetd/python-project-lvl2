@@ -1,27 +1,19 @@
-from pathlib import Path
-
-import pytest
-from conftest import PARSERS, get_fixture_path
-from gendiff import diff_log
+from gendiff.diff_log import generate_log
 
 
-@pytest.mark.parametrize(
-    "file_1, file_2, type, output",
-    [
-        ("file1.json", "file2.json", "flat", "flat-diff.txt"),
-        ("file1.yml", "file2.yaml", "flat", "flat-diff.txt"),
-    ],
-)
-def test_parser_on_flat(file_1, file_2, type, output):
-    path_1 = get_fixture_path(file_1, type)
-    path_2 = get_fixture_path(file_2, type)
-    suffix = "." + file_1.split(".")[1]
-    parser = PARSERS[suffix]
-    with open(path_1, "r") as f1, open(path_2, "r") as f2:
-        file_1, file_2 = (parser(f1), parser(f2))
-    log = diff_log.generate_log(file_1, file_2)
-    actual = diff_log.parse_log(log)
-    diff_path = Path(get_fixture_path(output, "diff-log", True))
-    with diff_path.open() as expected:
-        expected = diff_path.read_text()
-    assert actual == expected
+def test_generate_flat_log():
+    d1 = {
+        "host": "hexlet.io",
+        "timeout": 50,
+        "proxy": "123.234.53.22",
+        "follow": False,
+    }
+    d2 = {"timeout": 20, "verbose": True, "host": "hexlet.io"}
+    expected = [
+        {"property": "follow", "values": {"old": "False"}},
+        {"property": "host", "values": {"unchanged": "hexlet.io"}},
+        {"property": "proxy", "values": {"old": "123.234.53.22"}},
+        {"property": "timeout", "values": {"old": "50", "new": "20"}},
+        {"property": "verbose", "values": {"new": "True"}},
+    ]
+    assert generate_log(d1, d2) == expected

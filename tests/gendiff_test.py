@@ -10,8 +10,8 @@ from gendiff.lib import generate_diff
     [
         ("file1.json", "file2.json", "flat", "flat-diff.txt", "stylish"),
         ("file1.yaml", "file2.yaml", "flat", "flat-diff.txt", "stylish"),
-        ("file1.yml", "file2.yml", "flat", "flat-diff.txt", "stylish"),
-        ("file1.yml", "file2.yaml", "flat", "flat-diff.txt", "stylish"),
+        ("file1.yml", "file2.yml", "flat", "flat-diff.txt", "log-like"),
+        ("file1.json", "file2.json", "flat", "flat-diff.txt", "log-like"),
     ],
 )
 def test_flat_files_stylish(file_1, file_2, type, output, formatter):
