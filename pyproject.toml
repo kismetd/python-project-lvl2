@@ -20,6 +20,7 @@ isort = "^5.10.1"
 bandit = "^1.7.4"
 safety = "^2.1.1"
 pytest-cov = "^3.0.0"
+pandas = "^1.4.3"
 
 [tool.poetry.scripts]
 gendiff = "gendiff.__main__:main"
