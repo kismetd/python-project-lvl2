@@ -1,4 +1,4 @@
 ignore:
-    - "__main__.py"
-    - "__init__.py"
+    - "gendiff/__main__.py"
+    - "gendiff/__init__.py"
     - "tests"
