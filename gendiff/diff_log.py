@@ -1,22 +1,26 @@
-def generate_log(file_1, file_2):
-    log = []
+def get_diff(old, new):
+    log = {}
+    removed = old.keys() - new.keys()
+    added = new.keys() - old.keys()
+    kept = old.keys() & new.keys()
 
-    for key, value in file_1.items():
-        prop = {"property": key}
-        if file_2.get(key):
-            if value == file_2[key]:
-                prop["values"] = {"unchanged": str(value)}
-            else:
-                prop["values"] = {"old": str(value), "new": str(file_2[key])}
+    for key in kept:
+        old_val = old[key]
+        new_val = new[key]
+        if isinstance(old_val, dict) and isinstance(new_val, dict):
+            log[key] = {
+                "status": "nested",
+                "value": get_diff(old_val, new_val),
+            }
+        elif old_val == new_val:
+            log[key] = {"status": "unchanged", "value": old_val}
         else:
-            prop["values"] = {"old": str(value)}
-        log.append(prop)
+            log[key] = {"status": "changed", "old": old_val, "new": new_val}
 
-    for key, value in file_2.items():
-        if not file_1.get(key):
-            prop = {"property": key}
-            prop["values"] = {"new": str(value)}
-            log.append(prop)
+    for key in added:
+        log[key] = {"status": "added", "value": new[key]}
 
-    log.sort(key=lambda x: x["property"])
+    for key in removed:
+        log[key] = {"status": "removed", "value": old[key]}
+
     return log
