@@ -1,6 +1,7 @@
 def parse_log(log):
     lines = []
-    for prop, value in log.items():
+    for prop in sorted(log):
+        value = log[prop]
         if value["status"] == "nested":
             value = "complex"
         lines.append(f"[Property: {prop}] = {value}")
