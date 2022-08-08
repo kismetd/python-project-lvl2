@@ -9,9 +9,7 @@ from gendiff.lib import generate_diff
     "file_1, file_2, type, output, formatter",
     [
         ("file1.json", "file2.json", "flat", "flat-diff.txt", "stylish"),
-        ("file1.yaml", "file2.yaml", "flat", "flat-diff.txt", "stylish"),
-        ("file1.yml", "file2.yml", "flat", "flat-diff.txt", "log-like"),
-        ("file1.json", "file2.json", "flat", "flat-diff.txt", "log-like"),
+        ("file1.yaml", "file2.yml", "flat", "flat-diff.txt", "stylish"),
     ],
 )
 def test_flat_files(file_1, file_2, type, output, formatter):
@@ -28,6 +26,7 @@ def test_flat_files(file_1, file_2, type, output, formatter):
     [
         ("file1.json", "file2.json", "nested", "nested-diff.txt", "stylish"),
         ("file1.yaml", "file2.yaml", "nested", "nested-diff.txt", "stylish"),
+        ("file1.json", "file2.json", "nested", "nested-diff.txt", "plain"),
     ],
 )
 def test_nested_files(file_1, file_2, type, output, formatter):
