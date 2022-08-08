@@ -1,7 +1,7 @@
 from gendiff.diff_log import get_diff
 from gendiff.parser import parse_files
 from gendiff.renderers.log_like import parse_log
-from gendiff.renderers.stylish import stylish
+from gendiff.renderers.stylish import format as stylish
 
 RENDERERS = {
     "stylish": stylish,
