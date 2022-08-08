@@ -1,11 +1,13 @@
 from gendiff.diff_log import get_diff
 from gendiff.parser import parse_files
-from gendiff.renderers.log_like import parse_log
+from gendiff.renderers.json import json_format
+from gendiff.renderers.plain import format as plain
 from gendiff.renderers.stylish import format as stylish
 
 RENDERERS = {
     "stylish": stylish,
-    "log-like": parse_log,
+    "plain": plain,
+    "json": json_format,
 }
 
 

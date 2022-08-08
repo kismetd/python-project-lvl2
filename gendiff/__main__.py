@@ -5,7 +5,7 @@ from gendiff.lib import generate_diff
 
 DEFAULT_FORMAT = "stylish"
 
-FORMATS = ["stylish", "log-like"]
+FORMATS = ["stylish", "plain", "json"]
 
 parser = argparse.ArgumentParser(
     prog="gendiff",
