@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 
-from gendiff.lib import generate_diff
+from gendiff.generate_diff import generate_diff
 
 DEFAULT_FORMAT = "stylish"
 

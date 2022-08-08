@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 from conftest import get_fixture_path
-from gendiff.lib import generate_diff
+from gendiff.generate_diff import generate_diff
 
 
 @pytest.mark.parametrize(
