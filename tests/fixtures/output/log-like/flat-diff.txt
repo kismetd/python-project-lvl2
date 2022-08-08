@@ -1,5 +1,5 @@
-Property: [follow]. Type: [flat]. Status: [removed]. Value: [False]
-Property: [host]. Type: [flat]. Status: [unchanged]. Value: [hexlet.io]
-Property: [proxy]. Type: [flat]. Status: [removed]. Value: [123.234.53.22]
-Property: [timeout]. Type: [flat]. Status: [changed]. Value: was=[50], now=[20]
-Property: [verbose]. Type: [flat]. Status: [added]. Value: [True]
+[Property: host] = {'status': 'unchanged', 'value': 'hexlet.io'}
+[Property: timeout] = {'status': 'changed', 'old': 50, 'new': 20}
+[Property: verbose] = {'status': 'added', 'value': True}
+[Property: follow] = {'status': 'removed', 'value': False}
+[Property: proxy] = {'status': 'removed', 'value': '123.234.53.22'}
